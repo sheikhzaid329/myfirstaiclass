@@ -7,7 +7,7 @@ print(country)
 print(long)
 print(lat)
 
-# Perform basic arithmetic operations
+# basic arithmetic operations
 addition = long + lat
 
 print(" FastFood Restaurant long - lat - Addition:", addition)

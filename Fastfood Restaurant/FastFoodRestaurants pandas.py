@@ -92,7 +92,7 @@ print()
 
 print("# Case 2 : using .loc with index_col - starts here")
 
-df_index_col = pd.read_csv('FastFood Restaurant/FastFoodRestaurants.csv',delimiter=",",parse_dates=[14], date_format={'date_added': '%d-%m-%Y'} , index_col='address')
+df_index_col = pd.read_csv('FastFood Restaurant/FastFoodRestaurants.csv',delimiter=",")
 
 print(df_index_col)
 print(df_index_col.dtypes)
@@ -106,32 +106,32 @@ print(second_row)
 print()
 
 #Selecting multiple rows using .loc
-second_row2 = df_index_col.loc[[482892, 555962]]
+second_row2 = df_index_col.loc[[48, 55]]
 print("#Selecting multiple rows using .loc")
 print(second_row2)
 print()
 
 #Selecting a slice of rows using .loc
-second_row3 = df_index_col.loc[482892:686990]
+second_row3 = df_index_col.loc[48:68]
 print("#Selecting a slice of rows using .loc")
 print(second_row3)
 print()
 
 #Conditional selection of rows using .loc
-second_row4 = df_index_col.loc[df_index_col['city'] == 'Gateway Properties']
+second_row4 = df_index_col.loc[df_index_col['city'] == 'London']
 print("#Conditional selection of rows using .loc")
 print(second_row4)
 print()
 
 #Selecting a single column using .loc
-second_row5 = df_index_col.loc[:686990,'city']
+second_row5 = df_index_col.loc[:68,'city']
 print("#Selecting a single column using .loc")
 print(second_row5)
 print()
 
 
 #Selecting multiple columns using .loc
-second_row6 = df_index_col.loc[:686990,['city','country']]
+second_row6 = df_index_col.loc[:68,['city','country']]
 print("#Selecting multiple columns using .loc")
 print(second_row6)
 print()
@@ -206,7 +206,7 @@ print()
 # Next Run 
 print("Next Run")
 
-df.loc[len(df.index)] = [3477952,82,"https://www.FastFood Restaurant/Property/lahore_model_town_6_kanal_excellent_house_for_sale_in_model_town-347795-8-12.html","House2",2200000002,"Model Town2","Lahore2","Punjab2",312.483868658082,742.325685501099,2,"6 Kanal2","For Sale2",2,"07-17-2019","Real Biz International2","Usama Khan2"] 
+df.loc[len(df.index)] = [10001,82,"https://www.FastFood Restaurant/Property/lahore_model_town_6_kanal_excellent_house_for_sale_in_model_town-347795-8-12.html","House2",2200000002,"Model Town2","Lahore2","Punjab2",312.483868658082,742.325685501099,2,"6 Kanal2","For Sale2",2,"07-17-2019","Real Biz International2","Usama Khan2"] 
 print("Modified DataFrame - add a new row:")
 print(df)
 print()

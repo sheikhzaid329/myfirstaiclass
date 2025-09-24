@@ -28,15 +28,15 @@ print()
 
 
 # access the Name column
-city = df['city']
+City = df['City']
 print("access the Name column: df : ")
 print()
 print()
 
 # access multiple columns
-city_country = df[['city','country']]
+City_Country = df[['City','Country']]
 print("access multiple columns: df : ")
-print(city_country)
+print(City_Country)
 print()
 
 #Selecting a single row using .loc
@@ -59,31 +59,31 @@ print()
 
 
 #Conditional selection of rows using .loc
-second_row4 = df.loc[df['city'] == 'Gateway Properties']
-print("#Conditional selection of rows using .loc")
+second_row4 = df.loc[df['City'] == 'Francisco']
+print("Conditional selection of rows using .loc")
 print(second_row4)
 print()
 
 #Selecting a single column using .loc
-second_row5 = df.loc[:1,'city']
+second_row5 = df.loc[:1,'City']
 print("#Selecting a single column using .loc")
 print(second_row5)
 print()
 
 #Selecting multiple columns using .loc
-second_row6 = df.loc[:1,['city','country']]
+second_row6 = df.loc[:1,['City','Country']]
 print("#Selecting multiple columns using .loc")
 print(second_row6)
 print()
 
 #Selecting a slice of columns using .loc
-second_row7 = df.loc[:1,'location':'city']
+second_row7 = df.loc[:1,'Company':'City']
 print("#Selecting a slice of columns using .loc")
 print(second_row7)
 print()
 
 #Combined row and column selection using .loc
-second_row8 = df.loc[df['city'] == 'Gateway Properties','location':'city']
+second_row8 = df.loc[df['City'] == 'San Francisco','Company':'City']
 print("#Combined row and column selection using .loc")
 print(second_row8)
 print()
@@ -92,7 +92,7 @@ print()
 
 print("# Case 2 : using .loc with index_col - starts here")
 
-df_index_col = pd.read_csv('FastFood Restaurant/FastFoodRestaurants.csv',delimiter=",",parse_dates=[14], date_format={'date_added': '%d-%m-%Y'} , index_col='address')
+df_index_col = pd.read_csv('FastFood Restaurant/FastFoodRestaurants.csv',delimiter=",")
 
 print(df_index_col)
 print(df_index_col.dtypes)
@@ -100,64 +100,56 @@ print(df_index_col.info())
 # Second cycle - with index_col as property_id
 
 #Selecting a single row using .loc
-second_row = df_index_col.loc[342]
+second_row = df_index_col.loc[3]
 print("#Selecting a single row using .loc")
 print(second_row)
 print()
 
 #Selecting multiple rows using .loc
-second_row2 = df_index_col.loc[[482892, 555962]]
+second_row2 = df_index_col.loc[[43, 55]]
 print("#Selecting multiple rows using .loc")
 print(second_row2)
 print()
 
 #Selecting a slice of rows using .loc
-second_row3 = df_index_col.loc[482892:686990]
+second_row3 = df_index_col.loc[48:68]
 print("#Selecting a slice of rows using .loc")
 print(second_row3)
 print()
 
 #Conditional selection of rows using .loc
-second_row4 = df_index_col.loc[df_index_col['city'] == 'Gateway Properties']
+second_row4 = df_index_col.loc[df_index_col['city'] == 'London']
 print("#Conditional selection of rows using .loc")
 print(second_row4)
 print()
 
 #Selecting a single column using .loc
-second_row5 = df_index_col.loc[:686990,'city']
+second_row5 = df_index_col.loc[:68,'city']
 print("#Selecting a single column using .loc")
 print(second_row5)
 print()
 
 
 #Selecting multiple columns using .loc
-second_row6 = df_index_col.loc[:686990,['city','country']]
+second_row6 = df_index_col.loc[:69,['city','country']]
 print("#Selecting multiple columns using .loc")
 print(second_row6)
 print()
 
 #Selecting a slice of columns using .loc
-second_row7 = df_index_col.loc[:686990,'location':'city']
+second_row7 = df_index_col.loc[:123,'location':'City']
 print("#Selecting a slice of columns using .loc")
 print(second_row7)
 print()
 
 #Combined row and column selection using .loc
-second_row8 = df_index_col.loc[df_index_col['city'] == 'Gateway Properties','location':'city']
+second_row8 = df_index_col.loc[df_index_col['city'] == 'London','location':'City']
 print("#Combined row and column selection using .loc")
 print(second_row8)
 print()
 
-# Case 2 : using .loc with index_col  -  ends here
-
-
 print("# Case 3 : Using .iloc - starts here")
 # Case 3 : Using .iloc - starts here
-"""Using .iloc: Selection by Integer Position
-.iloc selects by position instead of label. This is the standard syntax of using .iloc: df.iloc[row_indexer, column_indexer]. There are two special things to look out for:
-
-Counting starting at 0: The first row and column have the index 0, the second one index 1, etc.
-Exclusivity of range end value: When using a slice, the row or column specified behind the colon is not included in the selection."""
 
 #Selecting a single row using .iloc
 second_row = df_index_col.iloc[0]
@@ -206,11 +198,6 @@ print()
 # Next Run 
 print("Next Run")
 
-df.loc[len(df.index)] = [3477952,82,"https://www.FastFood Restaurant/Property/lahore_model_town_6_kanal_excellent_house_for_sale_in_model_town-347795-8-12.html","House2",2200000002,"Model Town2","Lahore2","Punjab2",312.483868658082,742.325685501099,2,"6 Kanal2","For Sale2",2,"07-17-2019","Real Biz International2","Usama Khan2"] 
-print("Modified DataFrame - add a new row:")
-print(df)
-print()
-
 # delete row with index 1
 df.drop(1, axis=0, inplace=True)
 # delete row with index 1
@@ -222,21 +209,21 @@ print("Modified DataFrame - Remove Rows:")
 print(df)
 
 # delete age column
-df.drop('page_url', axis=1, inplace=True)
+df.drop('Select Investors', axis=1, inplace=True)
 # delete marital status column
-df.drop(columns='property_type', inplace=True)
+df.drop(columns='Country',axis=1, inplace=True)
 # delete height and profession columns
-df.drop(['location', 'city'], axis=1, inplace=True)
+df.drop(['Date Joined','City'], axis=1, inplace=True)
 # display the modified DataFrame after deleting rows
-print("Modified DataFrame -  delete page_url ,property_type , location , city , column :")
+print("Modified DataFrame -  delete Select Investers ,Country , Date Joined  , City , column :")
 print(df)
 
 
 #Rename Labels in a DataFrame
 # rename column 'Name' to 'First_Name'
-df.rename(columns= {'province_name': 'province_nameChanged'}, inplace=True)
+df.rename(columns= {'Company': 'Company_Changed'}, inplace=True)
 # rename columns 'Age' and 'City'
-df.rename(mapper= {'bedrooms': 'bedrooms_Changed', 'date_added':'date_added_Changed'}, axis=1, inplace=True)
+df.rename(mapper= {'industry': 'industry_Changed', 'date_added':'date_added_Changed'}, axis=1, inplace=True)
 # display the DataFrame after renaming column
 print("Modified DataFrame  - Rename Labels :")
 print(df)
@@ -250,51 +237,3 @@ df.rename(mapper={1: 10, 2: 100}, axis=0, inplace=True)
 # display the DataFrame after renaming column
 print("Modified DataFrame - Rename Row - 0  >>> 7 , 1 >>> 10 , 2 >>> 100  Labels:")
 print(df)
-
-# select the rows where the age is greater than 25
-selected_rows = df.query('city == \'Gateway Properties\' or price > 11000000')
-
-print(selected_rows.to_string())
-print(len(selected_rows))
-
-
-
-# sort DataFrame by price in ascending order
-sorted_df = df.sort_values(by='price')
-print(sorted_df.to_string(index=False))
-
-#Sort Pandas DataFrame by Multiple Columns
-
-# 1. Sort DataFrame by 'Age' and then by 'Score' (Both in ascending order)
-df1 = df.sort_values(by=['price', 'location_id'])
-
-print("Sorting by 'price' (ascending) and then by 'location_id' (ascending):\n")
-print(df1.to_string(index=False))
-
-grouped = df.groupby('location_id')['price'].sum()
-
-print(grouped.to_string())
-print("grouped :" , len(grouped))
-
-# use dropna() to remove rows with any missing values
-df_cleaned = df.dropna()
-print("Cleaned Data:\n",df_cleaned)
-
-
-# filling NaN values with 0
-df.fillna(0, inplace=True)
-
-print("\nData after filling NaN with 0:\n", df)
-
-
-
-# create a list named data
-data = [2, 4, 6, 8]
-# create Pandas array using data
-array1 = pd.array(data)
-print(array1)
-
-# creating a pandas.array of integers
-int_array = pd.array([1, 2, 3, 4, 5], dtype='int')
-print(int_array)
-print()

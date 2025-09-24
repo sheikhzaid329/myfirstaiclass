@@ -106,11 +106,9 @@ DimensionSlice2ItemOnly=  DimensionSlice2[0, 2]
 print("USA RealEstate long Plus Lat - 2 dimentional arrary - index array - DimensionSlice2[0, 2] " , DimensionSlice2ItemOnly)
 
 
-#You should use the builtin function nditer, if you don't need to have the indexes values.
 for elem in np.nditer(Dimension):
     print(elem)
 
-#EDIT: If you need indexes (as a tuple for 2D table), then:
 for index, elem in np.ndenumerate(Dimension):
     print(index, elem)
 
